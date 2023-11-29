@@ -13,7 +13,7 @@ height = st.slider("height in inches", 1, 100)
 
 weight = st.slider("weight in pounds", 1, 350)
 
-speed = st.slider("speed in feat", 20,50, step=5)
+speed = st.slider("speed in feet", 20,50, step=5)
 
 strength = st.slider("strength", 1, 20)
 
