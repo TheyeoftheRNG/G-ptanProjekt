@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title("DnD Race Predicter")
 
-model_KNeighborsClassifier = joblib.load("E:/Suli/géptan/projekt/model_KNeighborsClassifier.joblib")
+model_KNeighborsClassifier = joblib.load("model_KNeighborsClassifier.joblib")
 
 height = st.slider("Height in cm", 70, 210)
 
