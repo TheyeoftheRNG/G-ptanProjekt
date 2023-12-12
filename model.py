@@ -7,13 +7,13 @@ import streamlit as st
 
 st.title("DnD Race Predicter")
 
-model_KNeighborsClassifier = joblib.load("model_KNeighborsClassifier.joblib")
+model_KNeighborsClassifier = joblib.load("E:/Suli/géptan/projekt/model_KNeighborsClassifier.joblib")
 
-height = st.slider("height in inches", 1, 100)
+height = st.slider("Height in cm", 70, 210)
 
-weight = st.slider("weight in pounds", 1, 350)
+weight = st.slider("Weight in kg", 15, 200)
 
-speed = st.slider("speed in feet", 20,50, step=5)
+speed = st.slider("speed in feet", 25,30, step=5)
 
 strength = st.slider("strength", 1, 20)
 
@@ -41,9 +41,14 @@ wisdom_modifier = wisdom-10//2
 charisma_modifier = charisma-10//2
 
 
-height = height **4
+height = height * 0.393700787
+weight = weight * 2.20462262
+
+
+height = height **11
 weight = weight **4
-speed = speed **4
+speed=speed-27.5
+speed = speed **2
 strength = strength **4
 dexterity = dexterity **4
 constitution = constitution **4
@@ -69,21 +74,25 @@ dff = pd.DataFrame(data)
 
 number = model_KNeighborsClassifier.predict(dff)
 
+
+
+
+
 if number == 0:
-     st.write("dragonborn")
+     st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>dragonborn</h3>", unsafe_allow_html=True)
 elif number == 1:
-    st.write("dwarf")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>dwarf</h3>", unsafe_allow_html=True)
 elif number == 2:
-    st.write("elf")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>elf</h3>", unsafe_allow_html=True)
 elif number == 3:
-    st.write("gnome")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>gnome</h3>", unsafe_allow_html=True)
 elif number == 4:
-    st.write("half.elf")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>half elf</h3>", unsafe_allow_html=True)
 elif number == 5:
-    st.write("half.orc")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>half orc</h3>", unsafe_allow_html=True)
 elif number == 6:
-     st.write("halfling")
+     st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>halfling</h3>", unsafe_allow_html=True)
 elif number == 7:
-     st.write("human")
+     st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>human</h3>", unsafe_allow_html=True)
 elif number == 8:
-    st.write("tiefling")
+    st.markdown("<h3 style='text-align: center; height:0px; font-size: 20px;font-weight: normal; '>tiefling</h3>", unsafe_allow_html=True)
